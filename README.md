@@ -8,12 +8,16 @@ Manage intervals: add, remove and get intervals
 ```shell
 ./mvnw clean test
 ```
+Alternatively, if you don't have Java installed, but has docker installed. Run tests using the following.
+```shell
+docker run --rm -v "$PWD":/app -w /app eclipse-temurin:21-jdk-jammy ./mvnw test
+```
 
 ## Usage examples
 ```java
 IntervalManager intervalManager = new IntervalManager();
 
-// add an interval
+// add interval
 intervalManager.addInterval(1, 2); // [[1, 2]]
 intervalManager.addInterval(3, 5); // [[1, 2], [3, 5]]
 
