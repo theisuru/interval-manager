@@ -34,8 +34,8 @@ class IntervalManagerTest {
   @Test
   void given_setOfIntervals_when_addingAnNonOverlappingInterval_then_addInterval() {
     IntervalManager intervalManager = new IntervalManager();
-    intervalManager.addInterval(1, 2);
-    intervalManager.addInterval(3, 4);
+    List<Interval> input = List.of(new Interval(1, 2), new Interval(3, 4));
+    addAllIntervals(intervalManager, input);
     List<Interval> intervals = intervalManager.getIntervals();
     assertThat(intervals).hasSize(2);
     assertThat(intervals.getFirst().start()).isEqualTo(1);
@@ -67,7 +67,7 @@ class IntervalManagerTest {
   @Test
   void given_setOfIntervals_when_addingAnOverlappingIntervalSpanningMultipleIntervals_then_intervalsShouldMergeCorrectly() {
     IntervalManager intervalManager = new IntervalManager();
-    List<Interval> input = List.of(new Interval(1, 5), new Interval(-10, -5), new Interval(20, 70), new Interval(-8, 71));
+    List<Interval> input = List.of(new Interval(1, 5), new Interval(-10, -5), new Interval(20, 70), new Interval(-8, 71), new Interval(1, 1));
     addAllIntervals(intervalManager, input);
 
     List<Interval> expected = List.of(new Interval(-10, 71));
