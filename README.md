@@ -10,15 +10,22 @@ Manage intervals: add, remove intervals
 ```
 
 ## Usage examples
-- Add interval
-
 ```java
 IntervalManager intervalManager = new IntervalManager();
-intervalManager.addInterval(1, 2); // add an interval
-intervalManager.addInterval(3, 5);
-List<Interval> intervals = intervalManager.getIntervals(); // get intervals
+
+// add an interval
+intervalManager.addInterval(1, 2); // [[1, 2]]
+intervalManager.addInterval(3, 5); // [[1, 2], [3, 5]]
+
+// get intervals
+List<Interval> intervals = intervalManager.getIntervals(); // [[1, 2], [3, 5]
+
+// remove interval
+intervalManger.remove(3, 5); // [[1, 2]]
 ```
 
 ## Discussion points
-- I have slightly changed the method structure to accept interval `start`, `end` instead of an `Array`. We can overload methods, if `Array` input/output is required.  
+- Interval element consists from start to end, including start and excluding end
+- Interval boundaries and size are within `Integer` range
+- I have slightly changed the method signature to accept interval `start`, `end` instead of an `Array`. We can overload methods, if `Array` input/output is required.  
 - Possibility of using `LinkedList` instead of `ArrayList` to avoid extra memory?
