@@ -7,7 +7,7 @@ public class IntervalManager {
   private final List<Interval> intervals = new ArrayList<>();
 
   public List<Interval> getIntervals() {
-    return intervals;
+    return List.copyOf(intervals);
   }
 
   public void addInterval(int start, int end) {
