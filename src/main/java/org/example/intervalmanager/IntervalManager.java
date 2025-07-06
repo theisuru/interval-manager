@@ -10,7 +10,7 @@ public class IntervalManager {
     return List.copyOf(intervals);
   }
 
-  public void addInterval(int start, int end) {
+  public synchronized void addInterval(int start, int end) {
     validateInterval(start, end);
 
     List<Interval> newIntervals = new ArrayList<>();
@@ -22,7 +22,7 @@ public class IntervalManager {
     intervals.addAll(newIntervals);
   }
 
-  public void removeInterval(int start, int end) {
+  public synchronized void removeInterval(int start, int end) {
     validateInterval(start, end);
 
     List<Interval> newIntervals = new ArrayList<>();

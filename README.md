@@ -56,3 +56,4 @@ We are keeping intervals sorted. Therefore, we could just return the interval. R
 - I have slightly changed the method signature to accept interval `start`, `end` instead of an `Array`. We can overload methods, if `Array` input/output is required.  
 - Methods are small and follow clean code. There is no need for any comments to explain what each method does. 
 - Possible to improve memory usage by using a `LinkedList` instead of `ArrayList`. 
+- Basic form of thread safety (could be improved with `ReadWriteLock`. )
